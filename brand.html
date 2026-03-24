@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyglox | Digital Brand Book & Design System</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* ── Brand Book Specific Layout Styles ── */
+        /* These styles are specific to the documentation page itself, not the core system */
+        
+        body {
+            padding-block: 40px 100px;
+        }
+
+        /* Utility classes for doc layout */
+        .doc-header {
+            margin-block-end: calc(var(--grid-unit) * 6);
+        }
+        
+        .doc-header h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-block-start: 16px;
+        }
+        
+        .doc-lead {
+            max-width: 600px;
+            margin-block-start: 24px;
+            color: var(--text-secondary);
+        }
+
+        .section-header { 
+            margin-block-start: 80px; 
+            margin-block-end: 40px; 
+            border-bottom: 1px solid var(--border-subtle); 
+            padding-block-end: 16px; 
+        }
+
+        /* 01. Color Grid */
+        .color-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 24px; 
+        }
+        
+        .color-card { 
+            border: 1px solid var(--border-subtle); 
+            padding: 12px;
+            background: var(--bg-primary);
+        }
+        
+        .color-swatch { 
+            height: 120px; 
+            width: 100%; 
+            margin-block-end: 16px; 
+            border: 1px solid rgba(128, 128, 128, 0.1); /* Subtle definition for white/black swatches */
+        }
+        
+        .color-desc {
+            font-size: 11px; 
+            color: var(--text-secondary); 
+            margin-block-start: 4px;
+        }
+
+        /* 02. Type Scale */
+        .type-scale { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 32px; 
+        }
+        
+        .type-item { 
+            border-bottom: 1px solid var(--border-subtle); 
+            padding-block-end: 16px; 
+        }
+        
+        .type-label { 
+            font-size: 10px; 
+            color: var(--color-brand-tech); 
+            margin-block-end: 8px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+        }
+        
+        .type-preview {
+            max-width: 800px;
+        }
+
+        /* 03. Components */
+        .component-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+        
+        .component-item { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-start;
+            gap: 16px; 
+        }
+        
+        .component-label {
+            font-size: 10px; 
+            color: var(--text-secondary);
+        }
+
+        .data-card { 
+            border: 1px solid var(--border-subtle); 
+            padding: 32px; 
+            background: var(--bg-secondary); 
+            width: 100%;
+        }
+
+        .white-cta-box { 
+            background: var(--color-white); 
+            padding: 40px; 
+            border-radius: 4px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 24px; 
+            color: var(--color-gray-900); 
+            width: 100%;
+        }
+        
+        .white-cta-box h3 { 
+            color: var(--color-gray-900); 
+            margin-block-end: 8px; 
+            font-size: 24px; 
+        }
+        
+        .white-cta-box p { 
+            color: var(--color-gray-500); 
+            font-size: 14px; 
+        }
+
+        /* 04. Visualizations */
+        .viz-showcase { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 24px; 
+        }
+        
+        .viz-card { 
+            border: 1px solid var(--border-subtle); 
+            background: var(--bg-secondary); 
+            padding: 32px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 24px; 
+            position: relative; 
+        }
+
+        /* ── Theme Toggle Button ── */
+        .theme-toggle {
+            position: fixed; 
+            top: 16px; 
+            right: 24px; 
+            z-index: 100;
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border-strong);
+            color: var(--text-primary); 
+            padding: 8px 16px;
+            font-family: 'Roboto Mono', monospace; 
+            font-weight: 700; 
+            font-size: 11px;
+            letter-spacing: 0.08em; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        /* Data Theme Overrides for Manual Toggle */
+        /* (Connects the toggle script to the CSS variables) */
+        [data-theme="light"] {
+            --bg-primary: var(--color-white);
+            --bg-secondary: var(--color-gray-100);
+            --bg-inverse: var(--color-gray-900);
+            --text-primary: var(--color-gray-900);
+            --text-secondary: var(--color-gray-500);
+            --text-inverse: var(--color-white);
+            --border-subtle: var(--color-gray-200);
+            --border-strong: var(--color-gray-800);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1E1E1E;
+            --bg-inverse: var(--color-gray-100);
+            --text-primary: var(--color-gray-100);
+            --text-secondary: #A0A0A0;
+            --text-inverse: var(--color-gray-900);
+            --border-subtle: #2A2A2A;
+            --border-strong: var(--color-gray-200);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">◑ AUTO</button>
+
+    <main class="container">
+        <header class="doc-header">
+            <p class="mono type-label">// SYSTEM_DOCUMENTATION_V1.1_UPDATED</p>
+            <h1>DIGITAL BRAND BOOK</h1>
+            <p class="doc-lead">The Zyglox visual system prioritized structural weight, mathematical precision, and high-contrast clarity. Engineered for global industrial authority.</p>
+        </header>
+
+        <section>
+            <div class="section-header">
+                <h2 class="mono type-label">01. COLOR_PALETTE</h2>
+            </div>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--color-gray-900);"></div>
+                    <div class="mono" style="font-size: 12px;">INK_BLACK // #0D0D0D</div>
+                    <p class="color-desc">Primary Foundation. Stability & Depth.</p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--color-gray-200);"></div>
+                    <div class="mono" style="font-size: 12px; color: var(--color-gray-900); background: var(--color-gray-200); display: inline-block; padding: 0 4px;">PLATINUM // #E8E8E8</div>
+                    <p class="color-desc">Primary Accent. Precision Engineering.</p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--color-brand-baltic);"></div>
+                    <div class="mono" style="font-size: 12px;">BALTIC_BLUE // #1A3A5F</div>
+                    <p class="color-desc">Strategic Accent. System Active Indicators.</p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--color-brand-tech);"></div>
+                    <div class="mono" style="font-size: 12px; color: var(--color-brand-tech);">TECH_BLUE // #70A1D7</div>
+                    <p class="color-desc">Labeling/High Contrast. Accessible Data Markers.</p>
+                </div>
+                <div class="color-card" style="border-color: var(--color-brand-accent);">
+                    <div class="color-swatch" style="background: var(--color-brand-accent);"></div>
+                    <div class="mono" style="font-size: 12px; color: var(--color-brand-accent);">SCARLET_RUSH // #D10000</div>
+                    <p class="color-desc">Alert/Critical. Stress indicators ONLY.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2 class="mono type-label">02. TYPOGRAPHY_SYSTEM</h2>
+            </div>
+            <div class="type-scale">
+                <div class="type-item">
+                    <div class="type-label">Display Headline (84px)</div>
+                    <h1 style="font-size: clamp(48px, 8vw, 84px);">INDUSTRIAL PRECISION</h1>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">H1 Headline (48px)</div>
+                    <h2 style="font-size: clamp(32px, 5vw, 48px);">HOLLOW SHAFT SENSOR</h2>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">H2 Headline (32px)</div>
+                    <h3 style="font-size: clamp(24px, 4vw, 32px);">ACTIVE FIELD MAPPING</h3>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">Body Text (16px)</div>
+                    <p class="type-preview">The patented Hollow Shaft Sensor (HWS) utilizes the active inverse magnetostrictive effect to non-destructively measure mechanical stress directly from inside the shaft.</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">Technical Data (14px)</div>
+                    <p class="mono" style="font-size: 14px; color: var(--color-brand-tech);">STRESS_INDEX_DATA: 4.82 mT [ ACTIVE_SENSING ]</p>
+                </div>
+            </div>
+        </section>
+
+       <section>
+    <div class="section-header">
+        <h2 class="mono type-label">03. COMPONENT_LIBRARY</h2>
+    </div>
+    <div class="component-grid">
+        
+        <div class="component-item">
+            <div class="mono component-label">[ PRIMARY_BTN ]</div>
+            <button class="btn btn--primary">REQUEST INTEGRATION <span class="arrow">→</span></button>
+        </div>
+        
+        <div class="component-item">
+            <div class="mono component-label">[ SECONDARY_BTN ]</div>
+            <button class="btn btn--secondary">VIEW CASE STUDY</button>
+        </div>
+        
+        <div class="component-item" style="grid-column: 1 / -1;">
+            <div class="mono component-label">[ DATA_CARD ]</div>
+            <article class="data-card">
+                <h3 style="font-size: 24px; margin-block-end: 16px;">SYSTEM_DIAGNOSTICS</h3>
+                <p style="color: var(--text-secondary);">Monitoring the real-time stress state of the wheelset shaft via Inverse Magnetostrictive Field Mapping.</p>
+            </article>
+        </div>
+        
+        <div class="component-item" style="grid-column: 1 / -1;">
+            <div class="mono component-label">[ WHITE_CTA_BOX ]</div>
+            <aside class="white-cta-box">
+                <div>
+                    <h3>READY FOR INTEGRATION?</h3>
+                    <p>Our engineering team is ready to discuss your specific infrastructure requirements.</p>
+                </div>
+                <button class="btn btn--baltic">BOOK CONSULTATION</button>
+            </aside>
+        </div>
+        
+    </div>
+</section>
+
+        <section>
+            <div class="section-header">
+                <h2 class="mono type-label">04. TECHNICAL_VISUALIZATIONS</h2>
+            </div>
+            <div class="viz-showcase">
+                <div class="viz-card">
+                    <div class="mono" style="font-size: 10px; color: var(--text-secondary); position: absolute; top: 12px; left: 12px;">STATE_01: NOMINAL</div>
+                    <svg viewBox="0 0 200 200" width="160" height="160">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.3"/>
+                        <circle cx="100" cy="100" r="30" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.3"/>
+                        <circle cx="100" cy="100" r="40" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.1" />
+                        <circle cx="100" cy="100" r="55" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.1" />
+                        <circle cx="100" cy="100" r="70" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.1" />
+                        <circle cx="100" cy="100" r="4" fill="var(--text-primary)" opacity="0.4" />
+                    </svg>
+                </div>
+                <div class="viz-card" style="border-color: var(--color-brand-baltic);">
+                    <div class="mono" style="font-size: 10px; color: var(--color-brand-tech); position: absolute; top: 12px; left: 12px;">STATE_02: ACTIVE</div>
+                    <svg viewBox="0 0 200 200" width="160" height="160">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.6"/>
+                        <circle cx="100" cy="100" r="30" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.6"/>
+                        <ellipse cx="100" cy="100" rx="45" ry="35" fill="none" stroke="var(--color-brand-tech)" stroke-width="0.5" opacity="0.4" transform="rotate(-15 100 100)" />
+                        <ellipse cx="100" cy="100" rx="60" ry="45" fill="none" stroke="var(--color-brand-tech)" stroke-width="0.5" opacity="0.3" transform="rotate(-15 100 100)" />
+                        <ellipse cx="100" cy="100" rx="75" ry="55" fill="none" stroke="var(--color-brand-tech)" stroke-width="0.5" opacity="0.2" transform="rotate(-15 100 100)" />
+                        <circle cx="100" cy="100" r="4" fill="var(--color-brand-tech)" />
+                    </svg>
+                </div>
+                <div class="viz-card" style="border-color: var(--color-brand-accent);">
+                    <div class="mono" style="font-size: 10px; color: var(--color-brand-accent); position: absolute; top: 12px; left: 12px;">STATE_03: CRITICAL</div>
+                    <svg viewBox="0 0 200 200" width="160" height="160">
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--color-brand-accent)" stroke-width="1" opacity="0.8"/>
+                        <circle cx="100" cy="100" r="30" fill="none" stroke="var(--text-primary)" stroke-width="0.5" opacity="0.6"/>
+                        <path d="M 60 100 Q 70 90 80 100 Q 90 110 100 100 Q 110 90 120 100 Q 130 110 140 100" fill="none" stroke="var(--color-brand-accent)" stroke-width="1" />
+                        <ellipse cx="100" cy="100" rx="85" ry="40" fill="none" stroke="var(--color-brand-accent)" stroke-width="1.5" stroke-dasharray="2 2" />
+                        <circle cx="100" cy="100" r="4" fill="var(--color-brand-accent)" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('themeToggle');
+            const rootHtml = document.documentElement;
+            
+            // 1. Check local storage first
+            const savedTheme = localStorage.getItem('zyglox-theme');
+            
+            // 2. Check system preference if no saved theme
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // 3. Set initial state
+            let currentTheme = savedTheme || (systemDark ? 'dark' : 'light');
+            
+            const applyTheme = (theme) => {
+                rootHtml.setAttribute('data-theme', theme);
+                toggleBtn.textContent = theme === 'dark' ? '◑ DARK' : '◐ LIGHT';
+            };
+
+            // Initialize
+            applyTheme(currentTheme);
+
+            // 4. Handle Clicks
+            toggleBtn.addEventListener('click', () => {
+                currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+                localStorage.setItem('zyglox-theme', currentTheme);
+                applyTheme(currentTheme);
+            });
+
+            // 5. Listen for system preference changes (if user changes OS settings while site is open)
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('zyglox-theme')) { // Only auto-switch if user hasn't manually overridden
+                    currentTheme = e.matches ? 'dark' : 'light';
+                    applyTheme(currentTheme);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
