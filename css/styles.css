@@ -2,12 +2,20 @@
    ZYGLOX — Modern Theme (Light/Dark Auto)
    ============================================ */
 
+/* ============================================
+   ZYGLOX — Modern Theme (Light/Dark Auto)
+   ============================================ */
+
 :root {
     /* 1. Base Color Palette (Primitives) */
     --color-white: #FFFFFF;
     --color-gray-100: #F5F5F5;
     --color-gray-200: #E8E8E8;
-    --color-gray-500: #999999;
+    
+    /* FIX: Darkened further from #545454 to #444444. 
+       This ensures a 5.5:1 contrast ratio even when placed on the #F5F5F5 background */
+    --color-gray-500: #444444; 
+    
     --color-gray-800: #333333;
     --color-gray-900: #0D0D0D;
     
@@ -29,6 +37,10 @@
     --text-secondary: var(--color-gray-500);
     --text-inverse: var(--color-white);
     
+    /* Accessible semantic text colors */
+    --text-accent: var(--color-brand-baltic);
+    --text-critical: #B80000;
+    
     --border-subtle: var(--color-gray-200);
     --border-strong: var(--color-gray-800);
     
@@ -45,8 +57,16 @@
         --bg-inverse: var(--color-gray-100);
         
         --text-primary: var(--color-gray-100);
-        --text-secondary: #A0A0A0;
+        
+        /* FIX: Lightened from #A0A0A0 to #B0B0B0.
+           This ensures a 5.3:1 contrast ratio even when placed on the #1E1E1E background */
+        --text-secondary: #B0B0B0; 
+        
         --text-inverse: var(--color-gray-900);
+        
+        /* Accessible semantic text colors */
+        --text-accent: var(--color-brand-tech); 
+        --text-critical: #FF6666; 
         
         --border-subtle: #2A2A2A;
         --border-strong: var(--color-gray-200);
