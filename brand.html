@@ -12,42 +12,83 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="brand-page">
-    <!-- ZX docs switcher (injected for GitHub Pages) -->
+    <!-- ZX docs sidebar (injected for GitHub Pages) — uses canonical CSS vars -->
     <style>
-        .zx-switcher{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:9999;
-            display:flex;flex-direction:column;gap:2px;padding:6px;border-radius:4px;
-            font-family:'Roboto Mono',monospace;
-            background:#0d0d0f;border:1px solid rgba(255,255,255,.14);
-            box-shadow:0 8px 30px rgba(0,0,0,.45);}
-        :root[data-theme="light"] .zx-switcher{background:#f4f4f5;border-color:rgba(0,0,0,.12);
-            box-shadow:0 8px 30px rgba(0,0,0,.12);}
-        .zx-sw-link{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:3px;
-            text-decoration:none;color:#8a8a92;line-height:1.05;transition:all .15s ease;}
-        .zx-sw-num{font-size:11px;font-weight:700;letter-spacing:.05em;opacity:.7;}
-        .zx-sw-label{font-size:10px;font-weight:500;letter-spacing:.08em;white-space:nowrap;}
-        .zx-sw-link:hover{color:#fff;background:rgba(255,255,255,.06);}
-        :root[data-theme="light"] .zx-sw-link:hover{color:#000;background:rgba(0,0,0,.05);}
-        .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
-        .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{
-            color:#fff;background:var(--accent,#0af);background:#1f6feb;}
-        :root[data-theme="light"] .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
-        :root[data-theme="light"] .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{color:#fff;}
-        @media(max-width:760px){
-            .zx-switcher{left:0;right:0;bottom:0;top:auto;transform:none;flex-direction:row;
-                border-radius:0;justify-content:center;gap:4px;}
-            .zx-sw-label{font-size:11px;}
+        :root{ --zx-sb-w: 232px; }
+        body{ padding-left: var(--zx-sb-w) !important; }
+        /* Offset the canonical fixed nav (ui-elements) so it clears the sidebar */
+        nav{ left: var(--zx-sb-w) !important; width: auto !important; right: 0 !important; }
+
+        .zx-docnav{
+            position: fixed; left: 0; top: 0; bottom: 0; width: var(--zx-sb-w); z-index: 2000;
+            display: flex; flex-direction: column; gap: 28px; padding: 30px 22px;
+            font-family: 'Roboto Mono', monospace;
+            background: var(--nav-bg); border-right: 1px solid var(--border-subtle);
+            backdrop-filter: blur(20px);
+            transition: background .4s, border-color .4s;
+        }
+        .zx-docnav .zx-brand{
+            display: flex; align-items: center; gap: 12px; text-decoration: none;
+        }
+        .zx-docnav .zx-brand img{ height: 26px; width: auto; display: block; transition: filter .4s; }
+        html[data-theme="light"] .zx-docnav .zx-brand img{ filter: brightness(0); }
+
+        .zx-eyebrow{ font-size: 10px; font-weight: 700; letter-spacing: .18em;
+            text-transform: uppercase; color: var(--text-primary); opacity: .3; }
+
+        .zx-links{ display: flex; flex-direction: column; gap: 6px; }
+        .zx-links a{
+            display: flex; align-items: baseline; gap: 12px; padding: 13px 15px;
+            border: 1px solid transparent; border-radius: 3px; text-decoration: none;
+            color: var(--text-primary); opacity: .5;
+            font-size: 13px; font-weight: 500; letter-spacing: .05em;
+            transition: opacity .2s, border-color .2s, color .2s, background .2s;
+        }
+        .zx-links a .n{ font-size: 11px; font-weight: 700; opacity: .55; }
+        .zx-links a:hover{ opacity: 1; border-color: var(--border-subtle); }
+        .zx-docnav[data-page="brand"] .zx-links a[data-t="brand"],
+        .zx-docnav[data-page="ui"] .zx-links a[data-t="ui"]{
+            opacity: 1; color: var(--c-tech-blue); border-color: var(--c-tech-blue);
+            background: color-mix(in srgb, var(--c-tech-blue) 10%, transparent);
+        }
+
+        .zx-theme{ margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .zx-theme-row{ display: flex; gap: 6px; }
+        .zx-theme-row .theme-switch-btn{ flex: 1; min-width: 0; padding: 9px 8px;
+            font-size: 11px; letter-spacing: .08em; gap: 6px; }
+
+        @media (max-width: 900px){
+            body{ padding-left: 0 !important; padding-bottom: 72px !important; }
+            nav{ left: 0 !important; width: 100% !important; }
+            .zx-docnav{
+                left: 0; right: 0; top: auto; bottom: 0; width: auto; height: auto;
+                flex-direction: row; align-items: center; gap: 14px; padding: 10px 16px;
+                border-right: none; border-top: 1px solid var(--border-subtle);
+            }
+            .zx-docnav .zx-brand, .zx-docnav .zx-eyebrow{ display: none; }
+            .zx-links{ flex-direction: row; gap: 8px; }
+            .zx-links a{ padding: 9px 12px; }
+            .zx-theme{ margin-top: 0; margin-left: auto; flex-direction: row; align-items: center; gap: 10px; }
         }
     </style>
-    <nav class="zx-switcher" data-page="brand" aria-label="Documentation switcher">
-        <a href="brand.html" class="zx-sw-link" data-t="brand"><span class="zx-sw-num">01</span><span class="zx-sw-label">BRAND&nbsp;BOOK</span></a>
-        <a href="ui-elements.html" class="zx-sw-link" data-t="ui"><span class="zx-sw-num">02</span><span class="zx-sw-label">UI&nbsp;ELEMENTS</span></a>
-    </nav>
+    <aside class="zx-docnav" data-page="brand" aria-label="Documentation navigation">
+        <a class="zx-brand" href="brand.html">
+            <img src="assets/logo/kdZyglox_1.svg" alt="Zyglox">
+        </a>
+        <span class="zx-eyebrow">// Documentation</span>
+        <div class="zx-links">
+            <a href="brand.html" data-t="brand"><span class="n">01</span> Brand Book</a>
+            <a href="ui-elements.html" data-t="ui"><span class="n">02</span> UI Elements</a>
+        </div>
+        <div class="zx-theme">
+            <span class="zx-eyebrow">// Theme</span>
+            <div class="zx-theme-row" role="group" aria-label="Theme toggle">
+                <button class="theme-switch-btn" data-theme-set="light" aria-label="Light mode">LIGHT</button>
+                <button class="theme-switch-btn" data-theme-set="dark" aria-label="Dark mode">DARK</button>
+            </div>
+        </div>
+    </aside>
 
-
-    <div class="theme-switch" role="group" aria-label="Theme toggle">
-        <button class="theme-switch-btn" data-theme-set="light" aria-label="Light mode">☀</button>
-        <button class="theme-switch-btn" data-theme-set="dark" aria-label="Dark mode">☾</button>
-    </div>
 
     <div class="container">
         <p class="mono brand-system-tag">// SYSTEM_DOCUMENTATION_V1.1_UPDATED</p>
