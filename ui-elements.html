@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyglox | UI Elements Reference</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="brand-page">
+    <!-- ZX docs switcher (injected for GitHub Pages) -->
+    <style>
+        .zx-switcher{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:9999;
+            display:flex;flex-direction:column;gap:2px;padding:6px;border-radius:4px;
+            font-family:'Roboto Mono',monospace;
+            background:#0d0d0f;border:1px solid rgba(255,255,255,.14);
+            box-shadow:0 8px 30px rgba(0,0,0,.45);}
+        :root[data-theme="light"] .zx-switcher{background:#f4f4f5;border-color:rgba(0,0,0,.12);
+            box-shadow:0 8px 30px rgba(0,0,0,.12);}
+        .zx-sw-link{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:3px;
+            text-decoration:none;color:#8a8a92;line-height:1.05;transition:all .15s ease;}
+        .zx-sw-num{font-size:11px;font-weight:700;letter-spacing:.05em;opacity:.7;}
+        .zx-sw-label{font-size:10px;font-weight:500;letter-spacing:.08em;white-space:nowrap;}
+        .zx-sw-link:hover{color:#fff;background:rgba(255,255,255,.06);}
+        :root[data-theme="light"] .zx-sw-link:hover{color:#000;background:rgba(0,0,0,.05);}
+        .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
+        .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{
+            color:#fff;background:var(--accent,#0af);background:#1f6feb;}
+        :root[data-theme="light"] .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
+        :root[data-theme="light"] .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{color:#fff;}
+        @media(max-width:760px){
+            .zx-switcher{left:0;right:0;bottom:0;top:auto;transform:none;flex-direction:row;
+                border-radius:0;justify-content:center;gap:4px;}
+            .zx-sw-label{font-size:11px;}
+        }
+    </style>
+    <nav class="zx-switcher" data-page="ui" aria-label="Documentation switcher">
+        <a href="brand.html" class="zx-sw-link" data-t="brand"><span class="zx-sw-num">01</span><span class="zx-sw-label">BRAND&nbsp;BOOK</span></a>
+        <a href="ui-elements.html" class="zx-sw-link" data-t="ui"><span class="zx-sw-num">02</span><span class="zx-sw-label">UI&nbsp;ELEMENTS</span></a>
+    </nav>
+
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="brand.html" class="logo-wrapper">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Zyglox" class="logo-img">
+                <div class="nav-breadcrumb">// UI ELEMENTS</div>
+            </a>
+            <div class="theme-switch" role="group" aria-label="Theme toggle">
+                <button class="theme-switch-btn" data-theme-set="light" aria-label="Light mode">☀</button>
+                <button class="theme-switch-btn" data-theme-set="dark" aria-label="Dark mode">☾</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="content">
+        <div class="container">
+            <p class="mono brand-system-tag">// UI_ELEMENTS_REFERENCE_V1.0</p>
+            <h1 class="brand-title">UI ELEMENTS</h1>
+            <p class="brand-intro">Developer reference for every reusable component in the Zyglox design system. Toggle theme to verify both modes.</p>
+
+
+            <!-- 01. TYPOGRAPHY -->
+            <div class="section-header">
+                <h2 class="mono section-heading">01. TYPOGRAPHY</h2>
+            </div>
+
+            <div class="type-scale">
+                <div class="type-item">
+                    <div class="type-label">.display-title (40px)</div>
+                    <h1 class="display-title">MAGNETOSTRICTIVE SENSING</h1>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.hero h1 (clamp 32-56px)</div>
+                    <div class="hero"><h1>HOLLOW SHAFT SENSOR PLATFORM</h1></div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.section-title (32px) — same as h2</div>
+                    <h2 class="section-title">ACTIVE FIELD MAPPING</h2>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">h3 (default)</div>
+                    <h3>STRESS INDEX CORRELATION</h3>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.type-body (16px)</div>
+                    <p class="type-body">The patented Hollow Shaft Sensor (HSS) utilizes the magnetoelastic effect to non-destructively measure mechanical stress directly from inside the shaft.</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.mono</div>
+                    <p class="mono">STRESS_INDEX_DATA: 4.82 mT [ ACTIVE_SENSING ]</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.tech-label (14px, accent color)</div>
+                    <p class="mono tech-label">// REAL-TIME DIAGNOSTICS</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.section-subtitle (12px, 60% opacity)</div>
+                    <p class="mono section-subtitle">CONTINUOUS MONITORING SUBSYSTEM</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.section-desc (14px, 70% opacity)</div>
+                    <p class="section-desc">Real-time stress measurement enables predictive maintenance and early failure detection in rolling stock wheelset shafts.</p>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">.micro-label (10px, 50% opacity)</div>
+                    <span class="mono micro-label">LAST UPDATED 2026-04-13</span>
+                </div>
+            </div>
+
+
+            <!-- 02. BUTTONS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">02. BUTTONS</h2>
+            </div>
+
+            <div class="component-grid">
+                <div class="component-item">
+                    <div class="mono component-label">[ .cta-btn // PRIMARY ]</div>
+                    <button class="cta-btn">REQUEST INTEGRATION</button>
+                </div>
+                <div class="component-item">
+                    <div class="mono component-label">[ .btn-secondary // GHOST ]</div>
+                    <button class="btn-secondary">VIEW DATA SHEET</button>
+                </div>
+                <div class="component-item">
+                    <div class="mono component-label">[ .btn-cta-box // INVERTED CTA ]</div>
+                    <button class="btn-cta-box">BOOK CONSULTATION</button>
+                </div>
+                <div class="component-item">
+                    <div class="mono component-label">[ a.tech-card // LINK CARD ]</div>
+                    <p class="type-body">Use <code class="mono">&lt;a class="tech-card"&gt;</code> to make an entire tech card clickable. Hover adds accent border.</p>
+                </div>
+            </div>
+
+
+            <!-- 03. CARDS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">03. CARDS</h2>
+            </div>
+
+            <h3 class="mono brand-subsection">// TECH CARDS</h3>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <p class="mono tech-label">// DEFAULT</p>
+                    <h3>NOMINAL LOAD</h3>
+                    <p class="card-desc">Standard operating condition. Stress values within acceptable tolerance range for wheelset shaft.</p>
+                    <span class="mono card-action">VIEW DETAILS</span>
+                </div>
+                <div class="tech-card active">
+                    <p class="mono tech-label">// .ACTIVE</p>
+                    <h3>DYNAMIC LOAD</h3>
+                    <p class="card-desc">Active sensing state. Magnetostrictive field mapping in progress, blue border indicates live measurement.</p>
+                    <span class="mono card-action">VIEW DETAILS</span>
+                </div>
+                <div class="tech-card critical">
+                    <p class="mono tech-label">// .CRITICAL</p>
+                    <h3>CRITICAL PEAK</h3>
+                    <p class="card-desc">Threshold exceeded. Immediate inspection recommended. Red border signals alert condition.</p>
+                    <span class="mono card-action">VIEW ALERT</span>
+                </div>
+            </div>
+
+            <h3 class="mono brand-subsection">// DASHED VARIANT</h3>
+
+            <div class="tech-grid--2col tech-grid">
+                <div class="tech-card tech-card--dashed">
+                    <p class="mono tech-label">// .TECH-CARD--DASHED</p>
+                    <h3>PLANNED FEATURE</h3>
+                    <p class="card-desc">Dashed border variant for upcoming capabilities, placeholder states, or optional modules.</p>
+                </div>
+                <a href="#" class="tech-card">
+                    <p class="mono tech-label">// A.TECH-CARD (LINK)</p>
+                    <h3>CLICKABLE CARD</h3>
+                    <p class="card-desc">Entire card is an anchor element. Hover state adds accent border color.</p>
+                    <span class="mono card-action">NAVIGATE &rarr;</span>
+                </a>
+            </div>
+
+            <h3 class="mono brand-subsection">// PRODUCT CARD</h3>
+
+            <div class="tech-grid--2col tech-grid">
+                <div class="tech-card product-card">
+                    <div class="product-card-img viz-container">
+                        <span class="mono micro-label">PRODUCT IMAGE AREA</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p class="mono tech-label">// HOLLOW SHAFT SENSOR</p>
+                        <h3>HSS-420</h3>
+                        <p class="card-desc">Contactless stress measurement for railway wheelset shafts up to 420mm diameter.</p>
+                        <button class="btn-secondary">VIEW SPECIFICATIONS</button>
+                    </div>
+                </div>
+                <div class="tech-card product-card">
+                    <div class="product-card-img viz-container">
+                        <span class="mono micro-label">PRODUCT IMAGE AREA</span>
+                    </div>
+                    <div class="product-card-body">
+                        <p class="mono tech-label">// STATIONARY INSPECTION</p>
+                        <h3>SIS-200</h3>
+                        <p class="card-desc">High-throughput press-fit quality verification for depot-level maintenance operations.</p>
+                        <button class="btn-secondary">VIEW SPECIFICATIONS</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mono brand-subsection">// DATA CARD</h3>
+
+            <div class="component-grid">
+                <div class="component-item component-item--wide">
+                    <div class="data-card">
+                        <h3 class="data-card-title">SYSTEM DIAGNOSTICS</h3>
+                        <p class="data-card-text">Monitoring the real-time stress state of the wheelset shaft via magnetoelastic field mapping. Contains .data-card-title and .data-card-text.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 04. STAT VALUES -->
+            <div class="section-header">
+                <h2 class="mono section-heading">04. STAT_VALUES</h2>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <p class="mono tech-label">// .STAT-VALUE</p>
+                    <h2 class="stat-value">4.82</h2>
+                    <p class="card-subtitle">mT field strength (nominal)</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono tech-label">// .STAT-VALUE</p>
+                    <h2 class="stat-value">99.7%</h2>
+                    <p class="card-subtitle">Detection accuracy</p>
+                </div>
+                <div class="tech-card critical">
+                    <p class="mono tech-label">// .STAT-VALUE--CRITICAL</p>
+                    <h2 class="stat-value stat-value--critical">12.4</h2>
+                    <p class="card-subtitle">mT peak stress (threshold exceeded)</p>
+                </div>
+            </div>
+
+
+            <!-- 05. GRIDS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">05. GRIDS</h2>
+            </div>
+
+            <h3 class="mono brand-subsection">// .TECH-GRID (3-COL DEFAULT)</h3>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <p class="mono tech-label">// COL 1</p>
+                    <h3>SENSOR MODULE</h3>
+                    <p class="card-desc">Grid cell one of three.</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono tech-label">// COL 2</p>
+                    <h3>DATA PIPELINE</h3>
+                    <p class="card-desc">Grid cell two of three.</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono tech-label">// COL 3</p>
+                    <h3>CLOUD ANALYTICS</h3>
+                    <p class="card-desc">Grid cell three of three.</p>
+                </div>
+            </div>
+
+            <h3 class="mono brand-subsection">// .TECH-GRID--2COL</h3>
+
+            <div class="tech-grid tech-grid--2col">
+                <div class="tech-card">
+                    <p class="mono tech-label">// LEFT</p>
+                    <h3>HARDWARE LAYER</h3>
+                    <p class="card-desc">Two-column grid variant for wider content blocks.</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono tech-label">// RIGHT</p>
+                    <h3>SOFTWARE LAYER</h3>
+                    <p class="card-desc">Collapses to single column on mobile breakpoint.</p>
+                </div>
+            </div>
+
+            <h3 class="mono brand-subsection">// .SPLIT-LAYOUT</h3>
+
+            <div class="split-layout">
+                <div class="tech-card">
+                    <p class="mono tech-label">// LEFT PANE</p>
+                    <h3>CONTENT AREA</h3>
+                    <p class="card-desc">Split layout uses 1fr 1fr with generous gap. Ideal for text + visual pairings.</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono tech-label">// RIGHT PANE</p>
+                    <h3>VISUAL AREA</h3>
+                    <p class="card-desc">Aligns items center. Collapses to single column on mobile.</p>
+                </div>
+            </div>
+
+
+            <!-- 06. LISTS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">06. LISTS</h2>
+            </div>
+
+            <div class="split-layout">
+                <div>
+                    <h3 class="mono brand-subsection">// .BENEFITS-LIST</h3>
+                    <ul class="benefits-list">
+                        <li>&rarr; Non-contact measurement eliminates sensor wear</li>
+                        <li>&rarr; Real-time stress data at 10 kHz sampling rate</li>
+                        <li>&rarr; No shaft modification required for installation</li>
+                        <li>&rarr; Operates in harsh railway environments (-40 to +85 C)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mono brand-subsection">// .PLAIN-LIST</h3>
+                    <ul class="plain-list">
+                        <li>Wheelset shaft monitoring</li>
+                        <li>Press-fit quality verification</li>
+                        <li>Torsional stress analysis</li>
+                        <li>Bending moment detection</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- 07. LAYOUT MODIFIERS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">07. LAYOUT_MODIFIERS</h2>
+            </div>
+
+            <table class="spec-table">
+                <tr>
+                    <td>.hero--compact</td>
+                    <td>Removes hero bottom padding. Use when the section immediately following the hero needs to sit flush.</td>
+                </tr>
+                <tr>
+                    <td>.section--last</td>
+                    <td>Removes the bottom border from a section. Apply to the final section before the footer.</td>
+                </tr>
+                <tr>
+                    <td>.section-title--spaced</td>
+                    <td>Adds 24px bottom margin to a section title. Use when the title needs breathing room before body content.</td>
+                </tr>
+                <tr>
+                    <td>.features-grid--compact</td>
+                    <td>Overrides features grid to single column with tight 16px gap and no top margin.</td>
+                </tr>
+            </table>
+
+
+            <!-- 08. CTA BOX -->
+            <div class="section-header">
+                <h2 class="mono section-heading">08. CTA_BOX</h2>
+            </div>
+
+            <div class="cta-box">
+                <div>
+                    <h3 class="cta-box-title">READY FOR INTEGRATION?</h3>
+                    <p class="cta-box-text">Our engineering team is ready to discuss your specific infrastructure requirements for magnetostrictive sensing deployment.</p>
+                </div>
+                <button class="btn-cta-box">BOOK CONSULTATION</button>
+            </div>
+
+
+            <!-- 09. FORM ELEMENTS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">09. FORM_ELEMENTS</h2>
+            </div>
+
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="demo-name">FULL NAME</label>
+                    <input type="text" id="demo-name" placeholder="Dr. Maria Weber">
+                </div>
+                <div class="form-group">
+                    <label for="demo-company">COMPANY</label>
+                    <input type="text" id="demo-company" placeholder="Deutsche Bahn AG">
+                </div>
+                <div class="form-group">
+                    <label for="demo-topic">TOPIC</label>
+                    <select id="demo-topic">
+                        <option>Continuous Monitoring</option>
+                        <option>Stationary Inspection</option>
+                        <option>Data Sheet Request</option>
+                        <option>Partnership Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="demo-message">MESSAGE</label>
+                    <textarea id="demo-message" placeholder="Describe your wheelset monitoring requirements..."></textarea>
+                </div>
+                <button class="cta-btn">SEND MESSAGE</button>
+            </div>
+
+
+            <!-- 10. JOB DETAIL COMPONENTS -->
+            <div class="section-header">
+                <h2 class="mono section-heading">10. JOB_DETAIL_COMPONENTS</h2>
+            </div>
+
+            <div class="job-back">
+                <a href="#" class="link-plain mono">&larr; BACK TO ALL POSITIONS</a>
+            </div>
+
+            <h2 class="section-title section-title--spaced">SENIOR EMBEDDED ENGINEER</h2>
+
+            <div class="job-meta mono">
+                <span>FULL-TIME</span> // <span>GRAZ, AUSTRIA</span> // <span>POSTED 2026-03-15</span>
+            </div>
+
+            <div class="tech-grid tech-grid--2col">
+                <div class="tech-card">
+                    <p class="mono detail-label">DEPARTMENT</p>
+                    <p class="detail-value">Sensor Hardware Engineering</p>
+                    <p class="mono detail-label">REPORTS TO</p>
+                    <p class="detail-value">VP Engineering</p>
+                    <p class="mono detail-label">START DATE</p>
+                    <p class="detail-value">As soon as possible</p>
+                </div>
+                <div class="tech-card">
+                    <p class="mono detail-label">EXPERIENCE</p>
+                    <p class="detail-value">5+ years embedded systems</p>
+                    <p class="mono detail-label">EDUCATION</p>
+                    <p class="detail-value">MSc Electrical Engineering or equivalent</p>
+                    <p class="card-subtitle">Applications reviewed on a rolling basis.</p>
+                </div>
+            </div>
+
+
+            <!-- 11. RICH TEXT -->
+            <div class="section-header">
+                <h2 class="mono section-heading">11. RICH_TEXT</h2>
+            </div>
+
+            <p class="mono brand-subsection">// NOTE: This zone styles CMS/Bard output -- no classes needed on inner elements.</p>
+            <p class="section-desc">Wrap CMS output in a <code class="mono">.rich-text</code> container. All standard HTML elements inside receive appropriate typographic styling automatically.</p>
+
+            <div class="rich-text">
+                <h1>Magnetostrictive Sensing Technology</h1>
+                <h2>The Villari Effect in Practice</h2>
+                <h3>Non-Destructive Stress Measurement</h3>
+                <p>The <strong>magnetoelastic effect</strong> (also known as the Villari effect) describes the change in magnetic permeability of a ferromagnetic material when subjected to <em>mechanical stress</em>. This principle forms the foundation of all Zyglox sensing products.</p>
+                <p>By measuring the magnetic field response, we can determine the <a href="#">exact stress state</a> of a component without physical contact or surface preparation.</p>
+                <ul>
+                    <li>Non-contact measurement principle</li>
+                    <li>No shaft modification required</li>
+                    <li>Works through air gaps up to 5mm</li>
+                </ul>
+                <ol>
+                    <li>Install sensor coil assembly around target shaft</li>
+                    <li>Calibrate baseline magnetic field signature</li>
+                    <li>Begin continuous real-time stress monitoring</li>
+                </ol>
+                <blockquote>
+                    The Villari effect enables truly non-invasive structural health monitoring at industrial scale.
+                </blockquote>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer mono">
+        <div class="container">
+            &copy; 2026 ZYGLOX GMBH // NEXT GENERATION SENSOR SYSTEMS
+        </div>
+    </footer>
+
+    <script src="js/theme-toggle.js"></script>
+
+</body>
+</html>

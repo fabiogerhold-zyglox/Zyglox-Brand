@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyglox | Digital Brand Book & Design System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="brand-page">
+    <!-- ZX docs switcher (injected for GitHub Pages) -->
+    <style>
+        .zx-switcher{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:9999;
+            display:flex;flex-direction:column;gap:2px;padding:6px;border-radius:4px;
+            font-family:'Roboto Mono',monospace;
+            background:#0d0d0f;border:1px solid rgba(255,255,255,.14);
+            box-shadow:0 8px 30px rgba(0,0,0,.45);}
+        :root[data-theme="light"] .zx-switcher{background:#f4f4f5;border-color:rgba(0,0,0,.12);
+            box-shadow:0 8px 30px rgba(0,0,0,.12);}
+        .zx-sw-link{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:3px;
+            text-decoration:none;color:#8a8a92;line-height:1.05;transition:all .15s ease;}
+        .zx-sw-num{font-size:11px;font-weight:700;letter-spacing:.05em;opacity:.7;}
+        .zx-sw-label{font-size:10px;font-weight:500;letter-spacing:.08em;white-space:nowrap;}
+        .zx-sw-link:hover{color:#fff;background:rgba(255,255,255,.06);}
+        :root[data-theme="light"] .zx-sw-link:hover{color:#000;background:rgba(0,0,0,.05);}
+        .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
+        .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{
+            color:#fff;background:var(--accent,#0af);background:#1f6feb;}
+        :root[data-theme="light"] .zx-switcher[data-page="brand"] .zx-sw-link[data-t="brand"],
+        :root[data-theme="light"] .zx-switcher[data-page="ui"] .zx-sw-link[data-t="ui"]{color:#fff;}
+        @media(max-width:760px){
+            .zx-switcher{left:0;right:0;bottom:0;top:auto;transform:none;flex-direction:row;
+                border-radius:0;justify-content:center;gap:4px;}
+            .zx-sw-label{font-size:11px;}
+        }
+    </style>
+    <nav class="zx-switcher" data-page="brand" aria-label="Documentation switcher">
+        <a href="brand.html" class="zx-sw-link" data-t="brand"><span class="zx-sw-num">01</span><span class="zx-sw-label">BRAND&nbsp;BOOK</span></a>
+        <a href="ui-elements.html" class="zx-sw-link" data-t="ui"><span class="zx-sw-num">02</span><span class="zx-sw-label">UI&nbsp;ELEMENTS</span></a>
+    </nav>
+
+
+    <div class="theme-switch" role="group" aria-label="Theme toggle">
+        <button class="theme-switch-btn" data-theme-set="light" aria-label="Light mode">☀</button>
+        <button class="theme-switch-btn" data-theme-set="dark" aria-label="Dark mode">☾</button>
+    </div>
+
+    <div class="container">
+        <p class="mono brand-system-tag">// SYSTEM_DOCUMENTATION_V1.1_UPDATED</p>
+        <h1 class="brand-title">DIGITAL BRAND BOOK</h1>
+        <p class="brand-intro">The Zyglox visual system prioritized structural weight, mathematical precision, and high-contrast clarity. Engineered for global industrial authority.</p>
+
+        <!-- 1. Logo System -->
+        <div class="section-header">
+            <h2 class="mono section-heading">01. LOGO_SYSTEM</h2>
+        </div>
+
+        <p class="type-body" style="margin-bottom: 40px;">
+            The primary Zyglox logomark. Use the white version on dark backgrounds and the black version on light backgrounds. Never use the logo on backgrounds that compromise legibility or contrast.
+        </p>
+
+        <div class="logo-showcase">
+            <div class="logo-card logo-card--dark">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Zyglox logo on dark background">
+                <span class="logo-card-label">PRIMARY // ON DARK</span>
+            </div>
+            <div class="logo-card logo-card--light">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Zyglox logo on light background">
+                <span class="logo-card-label">PRIMARY // ON LIGHT</span>
+            </div>
+        </div>
+
+        <h3 class="mono brand-subsection">// USAGE RULES</h3>
+
+        <div class="logo-rules">
+            <div class="logo-rule-card">
+                <div class="logo-rule-demo logo-rule-demo--clearspace">
+                    <div class="clearspace-frame">
+                        <img src="assets/logo/kdZyglox_1.svg" alt="Clear space demonstration">
+                    </div>
+                </div>
+                <h3>CLEAR SPACE</h3>
+                <p>Always preserve minimum clear space of <strong>X</strong> (equal to the height of the "Z" character) around all sides of the logo. Do not crowd the mark with other elements.</p>
+            </div>
+
+            <div class="logo-rule-card">
+                <div class="logo-rule-demo logo-rule-demo--minsize">
+                    <img src="assets/logo/kdZyglox_1.svg" alt="Minimum size">
+                    <span class="minsize-label">20px MIN</span>
+                </div>
+                <h3>MINIMUM SIZE</h3>
+                <p>Never render the logo smaller than <strong>20px in height</strong> for digital use, or <strong>10mm</strong> for print. Below this, legibility of the logomark is compromised.</p>
+            </div>
+
+            <div class="logo-rule-card">
+                <div class="logo-rule-demo">
+                    <img src="assets/logo/kdZyglox_1.svg" alt="Color variants">
+                </div>
+                <h3>COLOR</h3>
+                <p>The logo exists only in <strong>white</strong> (for dark backgrounds) and <strong>black</strong> (for light backgrounds). Never apply tints, gradients, or accent colors to the logomark itself.</p>
+            </div>
+
+            <div class="logo-rule-card">
+                <div class="logo-rule-demo">
+                    <img src="assets/logo/kdZyglox_1.svg" alt="Background contrast">
+                </div>
+                <h3>CONTRAST</h3>
+                <p>The background behind the logo must provide <strong>sufficient contrast</strong> (minimum 4.5:1 luminance ratio). Avoid busy photos, patterns, or mid-tone colors that reduce the mark's clarity.</p>
+            </div>
+        </div>
+
+        <h3 class="mono brand-subsection" style="margin-top: 16px;">// DO NOT</h3>
+
+        <div class="logo-donts">
+            <div class="logo-dont logo-dont--stretch">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Do not stretch">
+                <span class="logo-dont-label">DON'T STRETCH</span>
+            </div>
+            <div class="logo-dont logo-dont--squish">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Do not squish">
+                <span class="logo-dont-label">DON'T SQUISH</span>
+            </div>
+            <div class="logo-dont logo-dont--rotate">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Do not rotate">
+                <span class="logo-dont-label">DON'T ROTATE</span>
+            </div>
+            <div class="logo-dont logo-dont--recolor">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Do not recolor">
+                <span class="logo-dont-label">DON'T RECOLOR</span>
+            </div>
+            <div class="logo-dont logo-dont--shadow">
+                <img src="assets/logo/kdZyglox_1.svg" alt="Do not add effects">
+                <span class="logo-dont-label">DON'T ADD EFFECTS</span>
+            </div>
+        </div>
+
+        <!-- 2. Color Palette -->
+        <div class="section-header">
+            <h2 class="mono section-heading">02. COLOR_PALETTE</h2>
+        </div>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch swatch-ink-black"></div>
+                <div class="mono color-name">INK_BLACK // #0D0D0D</div>
+                <p class="color-desc">Primary Foundation. Stability & Depth.</p>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch swatch-platinum"></div>
+                <div class="mono color-name color-name--inverted">PLATINUM // #E5E5E5</div>
+                <p class="color-desc">Primary Accent. Precision Engineering.</p>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch swatch-baltic-blue"></div>
+                <div class="mono color-name">BALTIC_BLUE // #1A3A5F</div>
+                <p class="color-desc">Strategic Accent. System Active Indicators.</p>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch swatch-tech-blue"></div>
+                <div class="mono color-name color-name--tech-blue">TECH_BLUE // #70A1D7</div>
+                <p class="color-desc">Labeling/High Contrast. Accessible Data Markers.</p>
+            </div>
+            <div class="color-card color-card--scarlet">
+                <div class="color-swatch swatch-scarlet-rush"></div>
+                <div class="mono color-name color-name--scarlet">SCARLET_RUSH // #D10000</div>
+                <p class="color-desc">Alert/Critical. Stress indicators ONLY.</p>
+            </div>
+        </div>
+
+        <!-- 2. Typography -->
+        <div class="section-header">
+            <h2 class="mono section-heading">03. TYPOGRAPHY_SYSTEM</h2>
+        </div>
+        <div class="type-scale">
+            <div class="type-item">
+                <div class="type-label">Display Headline (84px)</div>
+                <h1 class="type-display">INDUSTRIAL PRECISION</h1>
+            </div>
+            <div class="type-item">
+                <div class="type-label">H1 Headline (48px)</div>
+                <h1 class="type-h1">HOLLOW SHAFT SENSOR</h1>
+            </div>
+            <div class="type-item">
+                <div class="type-label">H2 Headline (32px)</div>
+                <h2 class="type-h2">ACTIVE FIELD MAPPING</h2>
+            </div>
+            <div class="type-item">
+                <div class="type-label">Body Text (16px)</div>
+                <p class="type-body">The patented Hollow Shaft Sensor (HSS) utilizes the active magnetoelastic effect to non-destructively measure mechanical stress directly from inside the shaft.</p>
+            </div>
+            <div class="type-item">
+                <div class="type-label">Technical Data (14px)</div>
+                <p class="mono type-data">STRESS_INDEX_DATA: 4.82 mT [ ACTIVE_SENSING ]</p>
+            </div>
+        </div>
+
+        <!-- 3. UI Components -->
+        <div class="section-header">
+            <h2 class="mono section-heading">04. COMPONENT_LIBRARY</h2>
+        </div>
+        <div class="component-grid">
+            <div class="component-item">
+                <div class="mono component-label">[ PRIMARY_BTN ]</div>
+                <button class="cta-btn">REQUEST INTEGRATION</button>
+            </div>
+            <div class="component-item">
+                <div class="mono component-label">[ SECONDARY_BTN / GHOST ]</div>
+                <button class="btn-secondary">VIEW CASE STUDY</button>
+            </div>
+            <div class="component-item component-item--wide">
+                <div class="mono component-label">[ DATA_CARD ]</div>
+                <div class="data-card">
+                    <h3 class="data-card-title">SYSTEM_DIAGNOSTICS</h3>
+                    <p class="data-card-text">Monitoring the real-time stress state of the wheelset shaft via Magnetoelastic Field Mapping.</p>
+                </div>
+            </div>
+            <div class="component-item component-item--full">
+                <div class="mono component-label">[ CTA_BOX ]</div>
+                <div class="cta-box">
+                    <div>
+                        <h3 class="cta-box-title">READY FOR INTEGRATION?</h3>
+                        <p class="cta-box-text">Our engineering team is ready to discuss your specific infrastructure requirements.</p>
+                    </div>
+                    <button class="btn-cta-box">BOOK CONSULTATION</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Visualizations -->
+        <div class="section-header">
+            <h2 class="mono section-heading">05. TECHNICAL_VISUALIZATIONS</h2>
+        </div>
+        <div class="viz-showcase">
+            <div class="viz-card">
+                <div class="mono viz-label">STATE_01: NOMINAL</div>
+                <svg class="viz-svg" viewBox="0 0 200 200" width="160" height="160">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                    <circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+                    <circle cx="100" cy="100" r="55" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.1"/>
+                    <circle cx="100" cy="100" r="4" fill="currentColor" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="viz-card viz-card--active">
+                <div class="mono viz-label viz-label--active">STATE_02: ACTIVE</div>
+                <svg class="viz-svg" viewBox="0 0 200 200" width="160" height="160">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+                    <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+                    <ellipse cx="100" cy="100" rx="45" ry="35" fill="none" stroke="var(--tech-blue)" stroke-width="0.5" opacity="0.4" transform="rotate(-15 100 100)"/>
+                    <ellipse cx="100" cy="100" rx="60" ry="45" fill="none" stroke="var(--tech-blue)" stroke-width="0.5" opacity="0.3" transform="rotate(-15 100 100)"/>
+                    <ellipse cx="100" cy="100" rx="75" ry="55" fill="none" stroke="var(--tech-blue)" stroke-width="0.5" opacity="0.2" transform="rotate(-15 100 100)"/>
+                    <circle cx="100" cy="100" r="4" fill="var(--tech-blue)"/>
+                </svg>
+            </div>
+            <div class="viz-card viz-card--critical">
+                <div class="mono viz-label viz-label--critical">STATE_03: CRITICAL</div>
+                <svg class="viz-svg" viewBox="0 0 200 200" width="160" height="160">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="var(--scarlet-rush)" stroke-width="1" opacity="0.8"/>
+                    <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
+                    <path d="M 60 100 Q 70 90 80 100 Q 90 110 100 100 Q 110 90 120 100 Q 130 110 140 100" fill="none" stroke="var(--scarlet-rush)" stroke-width="1"/>
+                    <ellipse cx="100" cy="100" rx="85" ry="40" fill="none" stroke="var(--scarlet-rush)" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <circle cx="100" cy="100" r="4" fill="var(--scarlet-rush)"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/theme-toggle.js"></script>
+
+</body>
+</html>
